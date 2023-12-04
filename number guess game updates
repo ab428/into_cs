@@ -1,0 +1,58 @@
+//Anoushka Bhandari
+public class App {
+    public static void main(String[] args) throws Exception {
+      
+        import java.util.ArrayList;
+        import java.util.Scanner;
+        
+        //user creating a range of numbers
+        
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the lowest number of the range: ");
+        int min = scanner.nextInt();
+ 
+        System.out.print("Enter the higest number of the range ");
+        int max = scanner.nextInt();
+ 
+        // Generating random number within the range the user reqeusted
+        Random random = new Random();
+        int randomNumber = random.nextInt(max - min + 1) + min;
+       
+        scanner.close();
+
+        int numberofguesses = 0;
+        
+        //if statements the deterine if guesses are to high or to low
+    
+        while (true) {
+            System.out.print("Enter guess: ");
+            int guess = NotAnInt(scanner);
+            numberofguesses++;
+
+            if (guess < min || guess > max) {
+                System.out.println("Your guess is not in the range");
+            } else if (guess < randomNumber) {
+                System.out.println("Your guess was to low.");
+            } else if (guess > randomNumber) {
+                System.out.println("Your guess was to high");
+            }
+        }
+    }
+
+        
+        system.out.print ("You had" numberofguesses ".")
+
+        //the use of a recursive function in the case if the user does not input a number
+
+        static int NotAnInt(Scanner sc) {
+            if (sc.hasNextInt()) {
+                return sc.nextInt();
+            } else {
+                System.out.println("You entered " + sc.next() + ", which is not a number. Please input a number.");
+                return NotAnInt(sc);
+            }
+
+
+    }
+}
